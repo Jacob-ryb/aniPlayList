@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c7841233-91dc-48a6-99e7-39d7ab2cc4fe" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/playlist/forms.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/playlist/templates/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/playlist/models.py" afterPath="$PROJECT_DIR$/playlist/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/playlist/templates/result.html" afterPath="$PROJECT_DIR$/playlist/templates/result.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/playlist/urls.py" afterPath="$PROJECT_DIR$/playlist/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/playlist/views.py" afterPath="$PROJECT_DIR$/playlist/views.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -67,7 +61,7 @@
       <file leaf-file-name="models.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/playlist/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
+            <state relative-caret-position="203">
               <caret line="26" column="26" lean-forward="true" selection-start-line="26" selection-start-column="26" selection-end-line="26" selection-end-column="26" />
               <folding />
             </state>
@@ -314,7 +308,14 @@
       <option name="project" value="LOCAL" />
       <updated>1500616330706</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Added a basic form">
+      <created>1500795851792</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1500795851792</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -367,7 +368,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Fixed URL routing and added a basic template" />
     <MESSAGE value="Added requirments" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added requirments" />
+    <MESSAGE value="Added a basic form" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added a basic form" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -781,7 +783,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/playlist/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
+        <state relative-caret-position="203">
           <caret line="26" column="26" lean-forward="true" selection-start-line="26" selection-start-column="26" selection-end-line="26" selection-end-column="26" />
           <folding />
         </state>
