@@ -7,10 +7,11 @@ class PlayList(models.Model):
     mal_or_kitsu_link = models.TextField(max_length=50, blank=False) #Text becuase user can enter just the username
     tv_size = models.BooleanField()
     youtube_link = models.TextField(blank=True)  # change to URLField later, for now I just want to return all the shows
-    # is_kitsu = models.BooleanField() # if the link is mal or kitsu
     #user_slug = models.SlugField(max_length=25) # This may eventually be the primary key
     # choices
     # could use an array to switch between mal and kitsu in the method
+    MAL =  'My Anime List'
+    KITSU = 'Kitsu'
     DONE = '&status=completed'  # hardcoded to kitsu's for now, will change later
     WATCHING = '&status=current'
     PTW = '&status=planned'
@@ -20,6 +21,10 @@ class PlayList(models.Model):
     LOW = '?sort=rating'
     OLD = '?sort=watched'
 
+    KITSU_MAL_CHOICES = (
+        (KITSU, 'Kitsu'),
+        (MAL, 'My Anime List'),
+    )
     MODE_CHOICES = (
         (DONE, 'Completed'),
         (WATCHING, 'Currently watching'),
@@ -32,6 +37,12 @@ class PlayList(models.Model):
         (TOP, "Highest rated first"),
         (LOW, "Lowest rated first"),
         (OLD, "Oldest first"),
+    )
+
+    kitsu_or_mal = models.CharField(
+        max_length=25,
+        choices=KITSU_MAL_CHOICES,
+        default=KITSU,
     )
     mode = models.CharField(
         max_length=25,
