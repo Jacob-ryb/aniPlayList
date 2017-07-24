@@ -18,7 +18,7 @@ def new_playlist(request):
         form = PlayListForm(request.POST)
         if form.is_valid():
             playlist = form.save(commit=True)
-            return redirect('result', id=playlist.id)
+            return redirect('result', playlist_id=playlist.id)
     else:
         form = PlayListForm()
     return render(request, 'index.html', {'form': form})
