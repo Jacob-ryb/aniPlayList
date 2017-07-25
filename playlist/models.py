@@ -5,7 +5,6 @@ from bs4 import BeautifulSoup as soup
 
 class PlayList(models.Model):
     mal_or_kitsu_link = models.TextField(max_length=50, blank=False) #Text becuase user can enter just the username
-    tv_size = models.BooleanField()
     youtube_link = models.TextField(blank=True)  # change to URLField later, for now I just want to return all the shows
     #user_slug = models.SlugField(max_length=25) # This may eventually be the primary key
     # choices
@@ -20,6 +19,8 @@ class PlayList(models.Model):
     TOP = '?sort=-rating'
     LOW = '?sort=rating'
     OLD = '?sort=watched'
+    FULL = "Full size"
+    TV = "TV size"
 
     KITSU_MAL_CHOICES = (
         (KITSU, 'Kitsu'),
@@ -38,6 +39,16 @@ class PlayList(models.Model):
         (LOW, "Lowest rated first"),
         (OLD, "Oldest first"),
     )
+    SIZE_CHOICES = (
+        (FULL, "Full size"),
+        (TV, "TV size"),
+    )
+    size = models.CharField(
+        max_length=25,
+        choices=SIZE_CHOICES,
+        default=FULL,
+    )
+
 
     kitsu_or_mal = models.CharField(
         max_length=25,
@@ -57,8 +68,8 @@ class PlayList(models.Model):
     )
 
 
-    def __str__(self):
-        return self.mal_or_kitsu_link + self.tv_size + self.youtube_link
+    #def __str__(self):
+        #return self.mal_or_kitsu_link + self.tv_size + self.youtube_link
         # return self.mal_or_kitsu_link + self.youtube_link + self.mode + self.order + self.tv_size
 
     # A method that sets that gets the username from link

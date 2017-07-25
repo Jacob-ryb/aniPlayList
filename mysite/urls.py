@@ -3,7 +3,7 @@
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/1.11/topics/http/urls/
 Examples:
-Fun ction views
+Function views
     1. Add an import:  from my_app import views
     2. Add a URL to urlpatterns:  url(r'^$', views.home, name='home')
 Class-based views
@@ -16,8 +16,10 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from django.conf.urls import include
+from playlist import views
 
 urlpatterns = [
     url(r'^playlist/', include('playlist.urls')),
     url(r'^admin/', admin.site.urls),
+    url(r'^$', views.new_playlist, name='index'), # There might be a cleaner way to do this, not sure will look into it later
 ]
