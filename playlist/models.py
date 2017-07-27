@@ -66,19 +66,31 @@ class PlayList(models.Model):
         choices=ORDER_CHOICES,
         default=TOP
     )
-
-
     #def __str__(self):
         #return self.mal_or_kitsu_link + self.tv_size + self.youtube_link
         # return self.mal_or_kitsu_link + self.youtube_link + self.mode + self.order + self.tv_size
-
-    # A method that sets that gets the username from link
-    # or if a username was supplied it attempts to create a link or returns an error
-    # Only deals with kitsu implmenation for now
-    #def set_user_link_or_slug(self)"
-
-
-    #def set_yotube_link(self):
+    def set_yotube_link(self):
         # for now I want this just to return all the shows the user has watched
-        # do'nt forget to add 'libary to the link'
-        #return self.youtube_link
+        if self.kitsu_or_mal == 'kitsu'
+            prepare_link_kitsu(self)
+            set_youtube_kitsu(self)
+        else:
+            prepare_link_mal(self)
+            set_youtube_mal(self)
+
+    # A method that sets that gets the username from link, will later be used as part of the URL
+    # or if a username was supplied it attempts to create a link or returns an error
+    def prepare_link_kitsu(self):
+        return  0
+
+    def prepare_link_mal(self):
+        return 0
+
+    # Do the datascarping neeeded youtube_link from a users already fully prepared kitsu link
+    def set_youtube_kitsu(self):
+        #do'nt forget to add 'libary to the link'
+        return 0
+
+    # Do the datascarping from a users already fully prepared MAL link
+    def set_youtube_mal(self):
+        return 0
