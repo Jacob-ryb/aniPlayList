@@ -16,9 +16,9 @@ class PlayList(models.Model):
     PTW = '&status=planned'
     HOLD = '&status=completed'
     DROPPED = '&status=dropped'  # add order first to the link sent to BS
-    TOP = '?sort=-rating'
-    LOW = '?sort=rating'
-    OLD = '?sort=watched'
+    TOP = 'library?sort=-rating'
+    LOW = 'library?sort=rating'
+    OLD = 'library?sort=watched'
     FULL = "Full size"
     TV = "TV size"
 
@@ -34,7 +34,7 @@ class PlayList(models.Model):
         (DROPPED, 'droped'),  # why would some want to willingly listen to trash?
     )
 
-    ORDER_CHOICES = ( # may want to come up with a few more options
+    ORDER_CHOICES = ( # may want to include a random option later
         (TOP, "Highest rated first"),
         (LOW, "Lowest rated first"),
         (OLD, "Oldest first"),
@@ -66,31 +66,45 @@ class PlayList(models.Model):
         choices=ORDER_CHOICES,
         default=TOP
     )
-    #def __str__(self):
-        #return self.mal_or_kitsu_link + self.tv_size + self.youtube_link
-        # return self.mal_or_kitsu_link + self.youtube_link + self.mode + self.order + self.tv_size
-    def set_yotube_link(self):
-        # for now I want this just to return all the shows the user has watched
-        if self.kitsu_or_mal == 'kitsu'
-            prepare_link_kitsu(self)
-            set_youtube_kitsu(self)
+
+    def start_data_scarping(self): # needs better name
+        if self.kitsu_or_mal == 'kitsu':
+            self.prepare_link_kitsu(self)
         else:
-            prepare_link_mal(self)
-            set_youtube_mal(self)
+            self.prepare_link_mal(self)
 
     # A method that sets that gets the username from link, will later be used as part of the URL
     # or if a username was supplied it attempts to create a link or returns an error
     def prepare_link_kitsu(self):
-        return  0
+        if '/' not in self.mal_or_kitsu_link: # the user has only given us a username
+            self.kitsu_or_mal= 'https://kitsu.io/users/' + self.kitsu_or_mal + '/'
+        self.kitsu_or_mal = self.kitsu_or_mal + self.order + self.mode # assuming url is valid we complete it
+        self.set_youtube_kitsu()
 
     def prepare_link_mal(self):
-        return 0
+        if '/' in self.mal_or_kitsu_link: # The user given us a link but we need to format at as mal is stupid
+            self.mal_or_kitsu_link =  self.mal_or_kitsu_link[self.mal_or_kitsu_link.find('profile/')+8:self.mal_or_kitsu_link.find('?')] # maybe get rid of the hard coded +8
+            # maybe do a second if in case the user gives us their list already instead of profile
 
-    # Do the datascarping neeeded youtube_link from a users already fully prepared kitsu link
+        self.mal_or_kitsu_link =  'https://myanimelist.net/animelist/' + self.mal_or_kitsu_link + "?"
+        self.set_youtube_mal(self)
+
     def set_youtube_kitsu(self):
-        #do'nt forget to add 'libary to the link'
-        return 0
+        try:
+            Uclient = uReq(self.kitsu_or_mal) # dont forget to close this later
+            page_html = Uclient.read()
+            page_soup = soup(page_html, "html.parser")
+        except:
+            self.mal_or_kitsu_link = 'There appeared to be some sort of error, please try agian and make sure to enter'
+        return self
 
-    # Do the datascarping from a users already fully prepared MAL link
+    # I'm repaeating myself so maybe we need another function here
+    # form error checking needs to be returned in a bitter way
     def set_youtube_mal(self):
-        return 0
+        try:
+            Uclient = uReq(self.kitsu_or_mal) # dont forget to close this later
+            page_html = Uclient.read()
+            page_soup = soup(page_html, "html.parser")
+        except:
+            self.mal_or_kitsu_link = 'There appeared to be some sort of error, please try agian and make sure to enter'
+        return self
