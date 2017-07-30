@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c7841233-91dc-48a6-99e7-39d7ab2cc4fe" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/desumusic.iml" afterPath="$PROJECT_DIR$/.idea/desumusic.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/playlist/models.py" afterPath="$PROJECT_DIR$/playlist/models.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -308,7 +305,14 @@
       <option name="project" value="LOCAL" />
       <updated>1500795882518</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Completed kitsu URL formating and most of MAL URL">
+      <created>1501456334156</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1501456334156</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TodoView">
@@ -322,7 +326,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="-1" width="1922" height="1082" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19375" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -371,7 +374,8 @@
     <MESSAGE value="Fixed URL routing and added a basic template" />
     <MESSAGE value="Added requirments" />
     <MESSAGE value="Added a basic form" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added a basic form" />
+    <MESSAGE value="Completed kitsu URL formating and most of MAL URL" />
+    <option name="LAST_COMMIT_MESSAGE" value="Completed kitsu URL formating and most of MAL URL" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
