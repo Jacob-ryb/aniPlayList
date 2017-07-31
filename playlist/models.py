@@ -1,3 +1,5 @@
+import urllib
+
 from django.db import models
 from urllib.request import urlopen as uReq
 from bs4 import BeautifulSoup as soup
@@ -91,12 +93,11 @@ class PlayList(models.Model):
 
     def set_youtube_kitsu(self):
         try:
-            Uclient = uReq(self.kitsu_or_mal) # dont forget to close this later
+            Uclient = urllib.request.Request(self.kitsu_or_mal, headers={'User-Agent': 'Mozilla/5.0'}) # dont forget to close this later
             page_html = Uclient.read()
             page_soup = soup(page_html, "html.parser")
         except:
             self.mal_or_kitsu_link = 'There appeared to be some sort of error, please try agian and make sure to enter'
-        return self
 
     # I'm repaeating myself so maybe we need another function here
     # form error checking needs to be returned in a bitter way
@@ -107,4 +108,3 @@ class PlayList(models.Model):
             page_soup = soup(page_html, "html.parser")
         except:
             self.mal_or_kitsu_link = 'There appeared to be some sort of error, please try agian and make sure to enter'
-        return self
